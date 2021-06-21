@@ -1,0 +1,9 @@
+__pycache__/
+earthvision2021/data/
+earthvision2021/labs/
+earthvision2021/results/
+earthvision2021/notebooks/
+
+*.swp
+*.pth
+
