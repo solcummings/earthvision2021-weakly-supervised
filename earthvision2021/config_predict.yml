@@ -1,0 +1,36 @@
+#  Predicting Settings
+
+seed: 0
+deterministic: True
+amp: True
+
+model_name: 'unet'
+model_args:
+    classes: 8
+    img_channels: 4
+    unet_arch_config: {upsample: 'subpixel', attention: True}
+    pretrained_unet: './labs/best_val_iou.pth'
+
+save_dir: './results/test/'
+
+dataset_args:
+    phase: 'test'
+    img_dir: './data/train/images/'
+    mean_std: './data/train/mean_std.csv'
+    crop_file: './data/train/val_sliding_window_1024.csv'
+    #crop_file: './data/train/test_sliding_window_1024.csv'
+    #crop_file: './data/train/all_without_labels_sliding_window_1024.csv'
+    aoi_file: './data/source/val.txt'
+    #aoi_file: './data/source/test.txt'
+    cropsize: 1024
+    comparison: 'monthly'
+    patchsize: &patchsize 1024
+    batch_size: 2
+    shuffle: False
+    num_workers: 2
+    transforms_args:
+        rotation: {p: 1.}
+        vflip: {p: 1.}
+        hflip: {p: 1.}
+        centercrop: {patchsize: *patchsize}
+

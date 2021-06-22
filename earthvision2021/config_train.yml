@@ -1,0 +1,69 @@
+# Training Settings
+
+seed: 1
+deterministic: True
+amp: True
+
+epochs: 300
+load_checkpoint: &checkpoint False
+save_dir: './labs/'
+
+model_name: 'unet'
+model_args:
+    classes: 8
+    img_channels: 4
+    pretrained_encoder: False #*checkpoint
+    unet_arch_config: {upsample: 'subpixel', attention: True}
+
+train_dataset_args:
+    phase: 'train'
+    img_dir: &img_dir './data/train/images/'
+    label_dir: &label_dir './data/train/labels/'
+    mean_std: &stat './data/train/mean_std.csv'
+    crop_file: &crop_file './data/train/random_128_binary_attempts128.csv'
+    cropsize: &cropsize 128
+    patchsize: &train_patchsize 112
+    val_ratio: &ratio 0.2
+    aoi_file: &aoi_file './data/source/train_with_labels.txt'
+    batch_size: 30
+    shuffle: True
+    num_workers: &num_workers 6
+    transforms_args:
+        rotation: {p: 0.5}
+        vflip: {p: 0.5}
+        hflip: {p: 0.5}
+        randomcrop: {patchsize: *train_patchsize}
+
+val_dataset_args:
+    phase: 'val'
+    img_dir: *img_dir
+    label_dir: *label_dir
+    mean_std: *stat
+    crop_file: *crop_file
+    cropsize: *cropsize
+    patchsize: *train_patchsize
+    val_ratio: *ratio
+    aoi_file: *aoi_file
+    batch_size: 90
+    shuffle: False
+    num_workers: *num_workers
+    transforms_args:
+        centercrop: {patchsize: *train_patchsize}
+
+loss_name: 'jaccard'
+loss_args:
+
+optimizer_name: 'sgd'
+optimizer_args:
+    lr: 1e-2
+    weight_decay: 1e-3
+    momentum: 0.9
+    nesterov: True
+
+scheduler_name: 'cosine_wr'
+scheduler_args:
+    T_0: 5
+    T_mult: 2
+    eta_min: 1e-4
+    verbose: True
+

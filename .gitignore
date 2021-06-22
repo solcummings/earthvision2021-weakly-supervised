@@ -6,4 +6,5 @@ earthvision2021/notebooks/
 
 *.swp
 *.pth
+*.npy
 
