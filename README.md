@@ -33,10 +33,8 @@ This work introduces a pixel-wise change detection network named Siamese Attenti
 |:-:|:-:|:-:|:-:|
 |None|Jaccard|0.2658||
 |val+test|Jaccard|0.2669||
-|:-:|:-:|:-:|:-:|
 |None|Dice|0.2668|
 |val+test|Dice|0.2674||
-|:-:|:-:|:-:|:-:|
 |None|Ensemble|0.2676||
 |val+test|Ensemble|0.2684|0.2423|
 
