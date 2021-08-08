@@ -13,11 +13,11 @@ This work introduces a pixel-wise change detection network named Siamese Attenti
 
 ![Proposed Attention Block](./examples/attention_block_proposed.png)
 
-|Attention block location|mean IoU (val)|
+|Attended features|mean IoU (val)|
 |:-:|:-:|
 |None|0.2635|
-|Skip connection|0.2603|
-|Up-sample|0.2658|
+|Skipped features|0.2603|
+|Up-sampled features|0.2658|
 
 2. Loss function  
 
