@@ -10,6 +10,7 @@ This work introduces a pixel-wise change detection network named Siamese Attenti
 
 ### Results
 1. Attention block  
+
 ![Proposed Attention Block](./examples/attention_block_proposed.png)
 
 |Attention block location|mean IoU (val)|
@@ -19,7 +20,6 @@ This work introduces a pixel-wise change detection network named Siamese Attenti
 |Up-sample|0.2658|
 
 2. Loss function  
-![Losses](./examples/losses.png)
 
 |Loss function|mean IoU (val)|
 |:-:|:-:|
