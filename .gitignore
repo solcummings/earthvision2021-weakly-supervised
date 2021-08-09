@@ -8,6 +8,9 @@ earthvision2021/notebooks/
 *.pth
 *.npy
 
-# except txt
-!earthvision2021/data/*.txt
+# exceptions
+!earthvision2021/data/source/*.txt
+!earthvision2021/data/train/mean_std.csv
+!earthvision2021/data/train/test_sliding_window_1024.csv
+!earthvision2021/data/train/val_sliding_window_1024.csv
 
