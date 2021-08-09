@@ -13,6 +13,8 @@ This work introduces a pixel-wise change detection network named Siamese Attenti
 
 ![Proposed Attention Block](./examples/attention_block_proposed.png)
 
+When training the model with Jaccard loss, attending the up-sampled features improves mean IoU scores whereas attending skipped features - originally proposed in Attention UNet - do not. The improvement implies a need for prioritizing information in the coarser resolution features.
+
 |Attended features|mean IoU (val)|
 |:-:|:-:|
 |None|0.2635|
@@ -21,6 +23,8 @@ This work introduces a pixel-wise change detection network named Siamese Attenti
 
 2. Loss function  
 
+Jaccard loss and Dice loss optimize for different metrics, producing slightly varying results. Ensembling models trained exclusively on each loss function improves scores.
+
 |Loss function|mean IoU (val)|
 |:-:|:-:|
 |Jaccard|0.2658|
@@ -28,6 +32,8 @@ This work introduces a pixel-wise change detection network named Siamese Attenti
 |Ensemble|0.2676|
 
 3. Semi-supervised learning  
+
+Creating hard pseudo labels for the public validation and test dataset, then retraining the model alongside the original training dataset improves scores regardless of loss function. The ensemble of models trained on each loss function is submitted to the public test benchmark.
 
 |Pseudo labels|Loss function|mean IoU (val)|mean IoU (test)|
 |:-:|:-:|:-:|:-:|
