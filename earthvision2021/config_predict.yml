@@ -19,7 +19,6 @@ dataset_args:
     mean_std: './data/train/mean_std.csv'
     crop_file: './data/train/val_sliding_window_1024.csv'
     #crop_file: './data/train/test_sliding_window_1024.csv'
-    #crop_file: './data/train/all_without_labels_sliding_window_1024.csv'
     aoi_file: './data/source/val.txt'
     #aoi_file: './data/source/test.txt'
     cropsize: 1024
