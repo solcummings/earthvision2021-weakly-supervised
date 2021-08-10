@@ -58,7 +58,7 @@ Creating hard pseudo labels for the public validation and test dataset, then ret
 
 ### Downloading and Preprocessing Data
 ```bash
-# assumes all data is unzipped to ./earthvision2021/data/source
+# assumes all data is unzipped to ./earthvision2021/data/source/
 cd ./setup/
 # convert data and organize directories
 bash setup.bash
