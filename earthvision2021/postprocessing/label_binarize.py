@@ -9,7 +9,7 @@ from PIL import Image
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Binarize for hard pseudo labels')
     parser.add_argument('--in_dir', type=str, default='../results/test/')
-    parser.add_argument('--out_dir', type=str, default='../data/train/labels_test/')
+    parser.add_argument('--out_dir', type=str, default='../data/train/labels/')
     args = parser.parse_args()
 
     os.makedirs(args.out_dir, exist_ok=True)

@@ -58,30 +58,50 @@ Creating hard pseudo labels for the public validation and test dataset, then ret
 
 ### Downloading and Preprocessing Data
 ```bash
-# unzip all data in ./earthvision2021/data/source and run the following
-# to convert data and organize directories
+# assumes all data is unzipped to ./earthvision2021/data/source
 cd ./setup/
+# convert data and organize directories
 bash setup.bash
 ```
 ```bash
-# create csv file that determine crop regions for training
 cd ./earthvision2021/preprocessing/
+# create csv file that determines crop regions for training
 python crop.py
 mv train.csv ../data/train/random_128_binary_attempts128.csv
 ```
 
 ### Training
 ```bash
-# train model according to configurations in ./earthvision2021/config_train.yml
 cd ./earthvision2021/
+# train model according to configurations in ./earthvision2021/config_train.yml
 python train.py
 ```
 
 ### Predicting
 ```bash
-# predict using model according to configurations in ./earthvision2021/config_predict.yml
 cd ./earthvision2021/
+# predict using model according to configurations in ./earthvision2021/config_predict.yml
 python predict.py
 ```
 
+### Pseudo Labelling 
+```bash
+cd ./earthvision2021/postprocessing/
+# binarizing prediction results to create hard pseudo labels
+python label_binarize.py --in_dir ${prediction_dir}
+cd ../preprocessing/
+# create new csv file of crop regions
+python crop.py --subset_file ${filename_text_file}
+mv train.csv ../data/train/${csv_file}
+# change "aoi_file" in ../config_train.yml to ${csv_file} and retrain
+```
+
+### Postprocessing
+```bash
+cd ./earthvision2021/postprocessing/
+# ensemble multiple predictions results
+python ensemble.py --in_dir_list ${prediction_dir} ...
+# binarize prediction results
+python binarize.py --in_dir ${prediction_dir}
+```
 
