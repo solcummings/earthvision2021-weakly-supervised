@@ -57,9 +57,31 @@ Creating hard pseudo labels for the public validation and test dataset, then ret
 - tqdm
 
 ### Downloading and Preprocessing Data
+```bash
+# unzip all data in ./earthvision2021/data/source and run the following
+# to convert data and organize directories
+cd ./setup/
+bash setup.bash
+```
+```bash
+# create csv file that determine crop regions for training
+cd ./earthvision2021/preprocessing/
+python crop.py
+mv train.csv ../data/train/random_128_binary_attempts128.csv
+```
 
 ### Training
+```bash
+# train model according to configurations in ./earthvision2021/config_train.yml
+cd ./earthvision2021/
+python train.py
+```
 
 ### Predicting
+```bash
+# predict using model according to configurations in ./earthvision2021/config_predict.yml
+cd ./earthvision2021/
+python predict.py
+```
 
 
