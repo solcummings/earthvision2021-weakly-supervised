@@ -1,7 +1,7 @@
 gdal==3.2.0
 numpy==1.20.2
 pandas==1.2.4
-pillow==8.2.0
+pillow==8.3.2
 pytorch==1.8.1
 pyyaml==5.4.1
 torchvision==0.9.1
