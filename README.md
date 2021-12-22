@@ -1,17 +1,16 @@
 # Siamese Attention U-Net for Multi-Class Change Detection
 1st place solution for the EARTHVISION 2021 DynamicEarthNet Challenge - Weakly-Supervised Multi-Class Change Detection Track at CVPRW 2021  
-[[Challenge Site]](https://competitions.codalab.org/competitions/30441) 
-[[Presentation Slides]](./examples/earthvision2021_presentation.pdf) 
+[[Challenge Site]](https://competitions.codalab.org/competitions/30441)
+[[Presentation Slides]](./examples/earthvision2021_presentation.pdf)
 [[Presentation Video]](https://youtu.be/nrntHeY8vtg?t=11994)
+[[Dataset]](https://competitions.codalab.org/competitions/30441#participate)
 
 ## Overview
 This work introduces a pixel-wise change detection network named Siamese Attention U-Net that incorporates attention mechanisms in the Siamese U-Net architecture. Experiments show the architectural change alongside training strategies such as semi-supervised learning produce more robust models.  
-  
 ![Siamese Attention U-Net](./examples/siamese_attention_unet.png)
 
 ### Results
 1. Attention block  
-
 ![Proposed Attention Block](./examples/attention_block_proposed.png)
 
 When training the model with Jaccard loss, attending the up-sampled features improves mean IoU scores whereas attending skipped features - originally proposed in Attention UNet - do not. The improvement implies a need for prioritizing information in the coarser resolution features.
