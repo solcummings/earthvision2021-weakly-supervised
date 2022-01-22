@@ -32,7 +32,7 @@ class UNet(nn.Module, InitializationMixin):
 
     Note
     ----
-    Encoder requires an indexable block for each resolution (reuires 4 total).
+    Encoder requires an indexable block for each resolution (requires 4 total).
     Each final block must have .out_channels: int as an attribute
     """
     def __init__(self, classes, img_channels,
