@@ -105,3 +105,15 @@ python ensemble.py --in_dir_list ${prediction_dir} ...
 python binarize.py --in_dir ${prediction_dir}
 ```
 
+## Citation
+If you find this work useful in your research or publication, please cite this work:
+```TeX
+@misc{cummings2021_sia,
+  author={Cummings, Sol},
+  title={Siamese Attention U-Net for Multi-Class Change Detection},
+  year={2021},
+  publisher={GitHub},
+  journal={GitHub repository},
+  howpublished={\url{https://github.com/solcummings/earthvision2021-weakly-supervised}},
+}
+```
