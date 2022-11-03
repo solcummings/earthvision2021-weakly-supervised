@@ -108,12 +108,12 @@ python binarize.py --in_dir ${prediction_dir}
 ## Citation
 If you find this work useful in your research or publication, please cite this work:
 ```TeX
-@misc{cummings2021_sia,
-  author={Cummings, Sol},
+@inproceedings{cummings2022_sia,
+  author={Cummings, Sol and Kondmann, Lukas and Zhu, Xiao Xiang},
+  booktitle={IGARSS 2022 - 2022 IEEE International Geoscience and Remote Sensing Symposium},
   title={Siamese Attention U-Net for Multi-Class Change Detection},
-  year={2021},
-  publisher={GitHub},
-  journal={GitHub repository},
-  howpublished={\url{https://github.com/solcummings/earthvision2021-weakly-supervised}},
+  year={2022},
+  pages={211-214},
+  doi={10.1109/IGARSS46834.2022.9884834}
 }
 ```
